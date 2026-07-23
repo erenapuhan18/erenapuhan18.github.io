@@ -4,118 +4,368 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Eren Apuhan · Web Projeleri</title>
-<meta name="description" content="Eren Apuhan'ın web projeleri: İstanbul canlı ulaşım haritası, KAVRUK kafe konsepti, Avrupa kura çekimi simülatörü, Dünya Kupası 2026 canlı skor ve simülasyon, Silo · You · Obsession hayran siteleri.">
+<meta name="description" content="Eren Apuhan'ın web projeleri: İstanbul canlı ulaşım haritası, 3D stadyum bilet gişesi, 2D maç motoru, kura ve turnuva simülatörleri, mekân konseptleri ve dizi/film sayfaları. Hepsi tarayıcıda çalışır.">
+<meta name="author" content="Eren Apuhan">
+<link rel="canonical" href="https://erenapuhan18.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Eren Apuhan · Web Projeleri">
+<meta property="og:description" content="17 tarayıcı projesi: canlı ulaşım haritası, 3D stadyum, maç motoru, turnuva simülatörleri, mekân konseptleri.">
+<meta property="og:url" content="https://erenapuhan18.github.io/">
+<meta property="og:image" content="https://erenapuhan18.github.io/shots/stadyum-bilet.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   *{margin:0;padding:0;box-sizing:border-box}
-  :root{--bg:#0a0b0e;--card:#12141a;--line:rgba(255,255,255,.08);--ink:#eef0f4;--mut:#8b91a0}
-  body{background:var(--bg);color:var(--ink);font-family:"Space Grotesk",system-ui,sans-serif;min-height:100svh;
-    background-image:radial-gradient(900px 500px at 15% -10%,rgba(43,111,255,.14),transparent 60%),
-                     radial-gradient(800px 500px at 90% 10%,rgba(233,161,59,.10),transparent 60%),
-                     radial-gradient(700px 600px at 50% 110%,rgba(214,255,63,.07),transparent 60%)}
-  .wrap{max-width:1060px;margin:0 auto;padding:64px 22px 40px}
-  header{margin-bottom:44px}
+  :root{
+    --bg:#0a0b0e; --card:#12141a; --line:rgba(255,255,255,.08);
+    --ink:#eef0f4; --mut:#8b91a0; --dim:#5d6474;
+  }
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);color:var(--ink);
+    font-family:"Space Grotesk",system-ui,sans-serif;min-height:100svh;
+    background-image:
+      radial-gradient(900px 500px at 15% -10%,rgba(43,111,255,.14),transparent 60%),
+      radial-gradient(800px 500px at 90% 8%,rgba(233,161,59,.10),transparent 60%),
+      radial-gradient(700px 600px at 50% 108%,rgba(214,255,63,.06),transparent 60%);
+    background-attachment:fixed;
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:64px 22px 40px}
+
+  /* ---------- başlık ---------- */
+  header{margin-bottom:30px}
   .eyebrow{font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:var(--mut);margin-bottom:14px}
   h1{font-size:clamp(34px,7vw,58px);font-weight:700;letter-spacing:-.02em;line-height:1.02}
   h1 span{color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.65)}
-  .sub{margin-top:14px;color:var(--mut);font-size:15px;max-width:52ch;line-height:1.55}
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
-  .card{--acc:#8b91a0;position:relative;display:flex;flex-direction:column;gap:10px;padding:22px 20px 18px;
-    background:var(--card);border:1px solid var(--line);border-radius:16px;text-decoration:none;color:var(--ink);
-    transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease;overflow:hidden}
-  .card::before{content:"";position:absolute;inset:0;background:radial-gradient(320px 160px at 20% 0%,color-mix(in srgb,var(--acc) 16%,transparent),transparent 70%);opacity:0;transition:opacity .18s ease}
-  .card:hover{transform:translateY(-4px);border-color:color-mix(in srgb,var(--acc) 55%,transparent);box-shadow:0 14px 34px -18px color-mix(in srgb,var(--acc) 60%,transparent)}
-  .card:hover::before{opacity:1}
-  .emo{font-size:26px;line-height:1}
-  .card h2{font-size:19px;font-weight:700;letter-spacing:-.01em}
-  .card p{font-size:13.5px;color:var(--mut);line-height:1.55;flex:1}
-  .meta{display:flex;align-items:center;justify-content:space-between;margin-top:6px}
-  .tag{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--acc);border:1px solid color-mix(in srgb,var(--acc) 45%,transparent);border-radius:99px;padding:3px 10px}
-  .go{font-size:13px;color:var(--mut);transition:transform .18s ease,color .18s ease}
-  .card:hover .go{transform:translateX(4px);color:var(--ink)}
-  footer{margin-top:46px;text-align:center;color:var(--mut);font-size:11.5px;letter-spacing:.04em;opacity:.8}
-  @media (prefers-reduced-motion:reduce){.card,.card::before,.go{transition:none}}
+  .sub{margin-top:14px;color:var(--mut);font-size:15px;max-width:56ch;line-height:1.6}
+  .stats{display:flex;flex-wrap:wrap;gap:26px;margin-top:22px}
+  .stat b{display:block;font-size:24px;font-weight:700;letter-spacing:-.01em;line-height:1.1}
+  .stat span{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim)}
+
+  /* ---------- filtre çubuğu ---------- */
+  .bar{
+    position:sticky;top:0;z-index:20;margin:0 -22px 26px;padding:14px 22px;
+    display:flex;flex-wrap:wrap;gap:10px;align-items:center;
+    background:color-mix(in srgb,var(--bg) 82%,transparent);
+    backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line);
+  }
+  .chips{display:flex;flex-wrap:wrap;gap:7px}
+  .chip{
+    font:inherit;font-size:12.5px;color:var(--mut);cursor:pointer;
+    background:transparent;border:1px solid var(--line);border-radius:99px;padding:6px 14px;
+    transition:color .16s ease,border-color .16s ease,background .16s ease;
+  }
+  .chip:hover{color:var(--ink);border-color:rgba(255,255,255,.22)}
+  .chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#0a0b0e;font-weight:500}
+  .chip.only[aria-pressed="true"]{background:#39d97e;border-color:#39d97e}
+  .search{margin-left:auto;position:relative}
+  .search input{
+    font:inherit;font-size:13px;color:var(--ink);width:210px;
+    background:var(--card);border:1px solid var(--line);border-radius:99px;
+    padding:8px 14px 8px 34px;outline:none;transition:border-color .16s ease,width .2s ease;
+  }
+  .search input:focus{border-color:rgba(255,255,255,.3);width:250px}
+  .search input::placeholder{color:var(--dim)}
+  .search::before{
+    content:"⌕";position:absolute;left:13px;top:50%;transform:translateY(-52%);
+    color:var(--dim);font-size:15px;pointer-events:none;
+  }
+
+  /* ---------- kart ızgarası ---------- */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+  .card{
+    --acc:#8b91a0;position:relative;display:flex;flex-direction:column;
+    background:var(--card);border:1px solid var(--line);border-radius:16px;
+    text-decoration:none;color:var(--ink);overflow:hidden;
+    transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease;
+  }
+  a.card:hover{
+    transform:translateY(-5px);
+    border-color:color-mix(in srgb,var(--acc) 55%,transparent);
+    box-shadow:0 18px 40px -20px color-mix(in srgb,var(--acc) 70%,transparent);
+  }
+  .shot{position:relative;aspect-ratio:16/10;overflow:hidden;background:#0e1015;border-bottom:1px solid var(--line)}
+  .shot img{
+    width:100%;height:100%;object-fit:cover;display:block;
+    filter:saturate(.92);transition:transform .45s cubic-bezier(.2,.7,.3,1),filter .3s ease;
+  }
+  a.card:hover .shot img{transform:scale(1.05);filter:saturate(1.05)}
+  .shot::after{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:linear-gradient(180deg,transparent 55%,rgba(18,20,26,.85) 100%);
+  }
+  .badge{
+    position:absolute;top:10px;right:10px;z-index:2;
+    font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+    padding:4px 9px;border-radius:99px;backdrop-filter:blur(8px);
+    background:rgba(10,11,14,.6);border:1px solid rgba(255,255,255,.14);color:var(--mut);
+  }
+  .badge.live{color:#39d97e;border-color:rgba(57,217,126,.4)}
+  .badge.live::before{
+    content:"";display:inline-block;width:5px;height:5px;border-radius:50%;
+    background:#39d97e;margin-right:6px;vertical-align:middle;
+    animation:pulse 2.4s ease-in-out infinite;
+  }
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+  .body{display:flex;flex-direction:column;gap:9px;padding:16px 18px 16px;flex:1}
+  .card h2{font-size:18px;font-weight:700;letter-spacing:-.01em;display:flex;align-items:center;gap:8px}
+  .card h2 .emo{font-size:17px}
+  .card p{font-size:13px;color:var(--mut);line-height:1.55;flex:1}
+  .tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:2px}
+  .tag{
+    font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);
+    border:1px solid var(--line);border-radius:5px;padding:3px 7px;
+  }
+  .tag:first-child{color:var(--acc);border-color:color-mix(in srgb,var(--acc) 38%,transparent)}
+  .foot{display:flex;align-items:center;justify-content:space-between;margin-top:4px}
+  .go{font-size:12.5px;color:var(--mut);transition:transform .2s ease,color .2s ease}
+  a.card:hover .go{transform:translateX(4px);color:var(--ink)}
+  .card.soon{opacity:.72}
+  .card.soon .go{color:var(--dim)}
+
+  .empty{
+    display:none;padding:56px 20px;text-align:center;color:var(--mut);font-size:14px;
+    border:1px dashed var(--line);border-radius:16px;
+  }
+  .empty.on{display:block}
+
+  footer{margin-top:52px;padding-top:26px;border-top:1px solid var(--line);text-align:center}
+  footer p{color:var(--dim);font-size:11.5px;letter-spacing:.03em;line-height:1.8}
+  footer a{color:var(--mut)}
+
+  @media (max-width:560px){
+    .wrap{padding:44px 16px 32px}
+    .bar{margin:0 -16px 22px;padding:12px 16px}
+    .search{margin-left:0;width:100%}
+    .search input,.search input:focus{width:100%}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{transition:none!important;animation:none!important}
+  }
 </style>
 </head>
 <body>
 <div class="wrap">
+
   <header>
     <div class="eyebrow">erenapuhan18.github.io</div>
     <h1>EREN <span>APUHAN</span></h1>
-    <p class="sub">Web projelerim — konsept siteler, futbol simülasyonları ve dizi/film hayran sayfaları. Hepsi tarayıcıda çalışır, kurulum istemez.</p>
+    <p class="sub">Tarayıcıda çalışan web projeleri — canlı veri panoları, 3D deneyimler, futbol simülasyonları, mekân konseptleri ve dizi/film sayfaları. Kurulum yok, sunucu yok; hepsi tek sayfa açılır.</p>
+    <div class="stats">
+      <div class="stat"><b id="s-total">17</b><span>Proje</span></div>
+      <div class="stat"><b id="s-live">12</b><span>Yayında</span></div>
+      <div class="stat"><b>4</b><span>Kategori</span></div>
+    </div>
   </header>
-  <div class="grid">
-    <a class="card" href="/istanbul-ulasim/" style="--acc:#ffb43a">
-      <div class="emo">🚇</div>
-      <h2>İstanbul Canlı Ulaşım</h2>
-      <p>Metro, tramvay, Marmaray, metrobüs ve vapurlar tek haritada: canlı sefer saatleri, LED peron panosu, şematik metro haritası modu.</p>
-      <div class="meta"><span class="tag">Canlı Harita</span><span class="go">Gir →</span></div>
-    </a>
-    <a class="card" href="/kavruk-kafe/" style="--acc:#E9A13B">
-      <div class="emo">☕</div>
-      <h2>KAVRUK</h2>
-      <p>Kadıköy'de yeni nesil bir kahve dükkânı konsepti: adisyon gibi menü, telve falı, hava durumuna göre kahve önerisi.</p>
-      <div class="meta"><span class="tag">Konsept Site</span><span class="go">Gir →</span></div>
-    </a>
-    <a class="card" href="/avrupa-kura/" style="--acc:#2b6fff">
-      <div class="emo">🏆</div>
-      <h2>Avrupa Kura Çekimi</h2>
-      <p>Şampiyonlar, Avrupa ve Konferans Ligi kura çekimi; gerçek takım güçleriyle grup, eleme ve şampiyonluk simülasyonu.</p>
-      <div class="meta"><span class="tag">Simülasyon</span><span class="go">Gir →</span></div>
-    </a>
-    <a class="card" href="/dunya-kupasi-2026/" style="--acc:#d6ff3f">
-      <div class="emo">🌎</div>
-      <h2>Dünya Kupası 2026</h2>
-      <p>Turnuvanın gerçek skorları canlı olarak sayfada; ayrıca kura gruplarıyla maç maç oynanan turnuva simülatörü.</p>
-      <div class="meta"><span class="tag">Canlı Skor · Simülasyon</span><span class="go">Gir →</span></div>
-    </a>
-    <a class="card" href="/mac-motoru-2d/" style="--acc:#39d97e">
-      <div class="emo">⚽</div>
-      <h2>2D Maç Motoru</h2>
-      <p>Kuşbakışı sahada 22 oyuncu gerçek zamanlı oynar: gerçek kadrolar, faul ve kartlar, penaltılar, canlı Türkçe anlatım.</p>
-      <div class="meta"><span class="tag">Maç Motoru · Simülasyon</span><span class="go">Gir →</span></div>
-    </a>
-    <a class="card" href="/stadyum-bilet/" style="--acc:#ef5566">
-      <div class="emo">🎟️</div>
-      <h2>TRİBÜN · 3D Bilet</h2>
-      <p>8 gerçek stadyum tamamen koddan: tribünden bölüm seç, koltuğundan sahayı gör, biletini kap — çevresinde sokak, otopark ve şehir dokusuyla.</p>
-      <div class="meta"><span class="tag">3D Deneyim</span><span class="go">Gir →</span></div>
-    </a>
-    <a class="card" href="/avrupa-gezi/" style="--acc:#3FE0C5">
-      <div class="emo">🌍</div>
-      <h2>Avrupa'da Gezilecek Yerler</h2>
-      <p>Etkileşimli 3D dünya haritasıyla Avrupa'nın en güzel şehirleri; şehir detayları, foto galerisi ve gezi rehberleri.</p>
-      <div class="meta"><span class="tag">Gezi Rehberi</span><span class="go">Gir →</span></div>
-    </a>
-    <a class="card" href="/lewis-hamilton/" style="--acc:#00d296">
-      <div class="emo">🏎️</div>
-      <h2>Lewis Hamilton · #44</h2>
-      <p>7 kez dünya şampiyonu Lewis Hamilton'a adanmış tek sayfalık hayran sitesi: kariyer anları ve rekorlar.</p>
-      <div class="meta"><span class="tag">Hayran Sitesi</span><span class="go">Gir →</span></div>
-    </a>
-    <a class="card" href="/silo-dizi/" style="--acc:#9DB3A0">
-      <div class="emo">🌀</div>
-      <h2>SILO</h2>
-      <p>Apple TV+ dizisi Silo'ya hayran sitesi: 144 katlık siloda scroll'la aşağı in, sakinlerin dosyalarını aç.</p>
-      <div class="meta"><span class="tag">Dizi</span><span class="go">Gir →</span></div>
-    </a>
-    <a class="card" href="/you-dizi/" style="--acc:#b3122e">
-      <div class="emo">🖤</div>
-      <h2>YOU</h2>
-      <p>Netflix'in You dizisi: Joe'nun iç sesi seni okur gibi konuşur — vitrine bak, bodruma inmeyi göze al.</p>
-      <div class="meta"><span class="tag">Dizi</span><span class="go">Gir →</span></div>
-    </a>
-    <a class="card" href="/obsession-film/" style="--acc:#ff2a3c">
-      <div class="emo">📱</div>
-      <h2>Obsession</h2>
-      <p>Obsession (2026) korku filmi: dileği kırarsan Nikki mesaj atmaya başlar. Telefonunu sessize alsan da fark etmez.</p>
-      <div class="meta"><span class="tag">Film</span><span class="go">Gir →</span></div>
-    </a>
-  </div>
-  <footer>Kişisel hobi projeleridir · Dizi/film sayfaları resmi olmayan hayran çalışmalarıdır</footer>
+
+  <nav class="bar" aria-label="Proje filtreleri">
+    <div class="chips" id="chips">
+      <button class="chip" data-cat="all"     aria-pressed="true">Hepsi</button>
+      <button class="chip" data-cat="spor"    aria-pressed="false">Spor &amp; Simülasyon</button>
+      <button class="chip" data-cat="sehir"   aria-pressed="false">Şehir &amp; Harita</button>
+      <button class="chip" data-cat="konsept" aria-pressed="false">Konsept</button>
+      <button class="chip" data-cat="ekran"   aria-pressed="false">Dizi &amp; Film</button>
+      <button class="chip only" id="onlyLive" aria-pressed="false">● Sadece yayındakiler</button>
+    </div>
+    <div class="search">
+      <input id="q" type="search" placeholder="Ara — stadyum, metro, kahve…" aria-label="Projelerde ara" autocomplete="off">
+    </div>
+  </nav>
+
+  <div class="grid" id="grid"></div>
+  <div class="empty" id="empty">Aramanla eşleşen proje yok. Filtreleri temizleyip tekrar dene.</div>
+
+  <footer>
+    <p>Kişisel hobi projeleridir · Dizi, film ve marka sayfaları resmî olmayan hayran çalışmalarıdır<br>
+    <a href="mailto:erenapuhan18@gmail.com">erenapuhan18@gmail.com</a></p>
+  </footer>
+
 </div>
+
+<script>
+const PROJECTS = [
+  {
+    id:"istanbul-ulasim", cat:"sehir", live:true, acc:"#ffb43a", emo:"🚇",
+    title:"İstanbul Canlı Ulaşım",
+    desc:"Metro, tramvay, Marmaray, metrobüs ve vapurlar tek haritada. Tarifeye göre araç konumu tahmini, LED peron panosu, rota planlayıcı ve şematik metro haritası modu.",
+    tags:["Canlı API","Leaflet","GTFS"]
+  },
+  {
+    id:"stadyum-bilet", cat:"spor", live:true, acc:"#ef5566", emo:"🎟️",
+    title:"TRİBÜN · 3D Bilet Gişesi",
+    desc:"8 gerçek stadyum tamamen koddan üretiliyor. Tribünden bölüm seç, koltuğundan sahayı gör, biletini kap — çevresinde sokaklar, otopark ve stada özgü şehir dokusuyla.",
+    tags:["three.js","WebGL","Prosedürel"]
+  },
+  {
+    id:"mac-motoru-2d", cat:"spor", live:true, acc:"#39d97e", emo:"⚽",
+    title:"2D Maç Motoru",
+    desc:"Kuşbakışı sahada 22 oyuncu gerçek zamanlı oynar: gerçek kadrolar, faul ve kartlar, ofsayt, VAR, xG, uzatmalar ve seri penaltılar — üstüne canlı Türkçe spiker anlatımı.",
+    tags:["Canvas","Yapay Zekâ","Simülasyon"]
+  },
+  {
+    id:"dunya-kupasi-2026", cat:"spor", live:true, acc:"#d6ff3f", emo:"🌎",
+    title:"Dünya Kupası 2026",
+    desc:"Turnuvanın gerçek skorları canlı olarak sayfada; ayrıca kura gruplarıyla maç maç oynanan, Poisson tabanlı tam turnuva simülatörü ve eleme çizelgesi.",
+    tags:["Canlı Skor","Simülasyon","Elo"]
+  },
+  {
+    id:"avrupa-kura", cat:"spor", live:true, acc:"#2b6fff", emo:"🏆",
+    title:"Avrupa Kura Çekimi",
+    desc:"Şampiyonlar, Avrupa ve Konferans Ligi kura çekimi — gerçek kulüp armaları ve torbalarla, sinematik çekiliş animasyonu. Otomatik ya da tek tek kendin çek.",
+    tags:["Simülasyon","Animasyon","UEFA"]
+  },
+  {
+    id:"hipodrom", cat:"spor", live:false, acc:"#3f9b62", emo:"🐎",
+    title:"HİPODROM · 3D At Yarışı",
+    desc:"900 metre, tek tur, tek kalp. Altı atın oranlarına bak, bahsini koy; takip ve drone kameralarıyla yarışı izle, foto finişte kazananı gör.",
+    tags:["three.js","Oyun","Bahis Motoru"]
+  },
+  {
+    id:"lewis-hamilton", cat:"spor", live:true, acc:"#00d296", emo:"🏎️",
+    title:"Lewis Hamilton · #44",
+    desc:"Yedi kez dünya şampiyonu Hamilton'a adanmış tek sayfalık hayran sitesi: kariyer dönemeçleri, rekorlar ve scroll'la ilerleyen anlatım.",
+    tags:["Scroll Anlatı","F1"]
+  },
+  {
+    id:"avrupa-gezi", cat:"sehir", live:true, acc:"#3fe0c5", emo:"🌍",
+    title:"Kültür Ağı",
+    desc:"Fikirlerin, müziğin ve tasarımın şehirler arasında nasıl dolaştığını izle: 112 şehir, 168 rota, eşdörtgenden ortografiğe dönen etkileşimli küre.",
+    tags:["Veri Görselleştirme","Küre Projeksiyonu","Canvas"]
+  },
+  {
+    id:"araba-vitrini", cat:"konsept", live:false, acc:"#e8b04b", emo:"🚗",
+    title:"OTOVİTRİN",
+    desc:"Türkiye'de satılan 70 sıfır model, 26 marka. Markayı seç salona gir; her araç için gerçek dış ve iç mekân fotoğraf galerisi, teknik özellikler ve sinematik geçişler.",
+    tags:["GSAP","Wikimedia API","Katalog"]
+  },
+  {
+    id:"kavruk-kafe", cat:"konsept", live:true, acc:"#e9a13b", emo:"☕",
+    title:"KAVRUK",
+    desc:"Kadıköy'de üçüncü nesil bir kavurma dükkânı konsepti: sayfaya kahve dökülerek açılır, menü adisyon gibi yazılır, telve falı ve hava durumuna göre kahve önerisi verir.",
+    tags:["Konsept","OSM Harita","Animasyon"]
+  },
+  {
+    id:"kor-ocakbasi", cat:"konsept", live:false, acc:"#ff5a1f", emo:"🔥",
+    title:"KOR · Karaköy Ocakbaşı",
+    desc:"\"Ateş acele etmez.\" Köz ve kıvılcım canvas'ta canlı yanıyor; menü ızgaranın üstünde, her et için köz süresi barıyla. Ocak başından tabureni seç.",
+    tags:["Canvas","Konsept","Parçacık"]
+  },
+  {
+    id:"yakamoz-meyhane", cat:"konsept", live:false, acc:"#e8c87a", emo:"🌙",
+    title:"Yakamoz · Arnavutköy",
+    desc:"Sayfa bir akşam gibi ilerler: kaydırdıkça saat geçer, gökyüzü kararır, kadeh dolar. Dönen sofrada meze seç, teras planından masanı ayır.",
+    tags:["Scroll Anlatı","Konsept","Boğaz"]
+  },
+  {
+    id:"baston-donut", cat:"konsept", live:false, acc:"#ef4f78", emo:"🍩",
+    title:"Baston Donut",
+    desc:"İmleç bir donut, sayfalar deliğinden geçilerek açılıyor. Hero donutu gerçekten ısırabilirsin; menü beş halka hâlinde diziliyor, hesap QR'lı tabakta geliyor.",
+    tags:["SVG","Etkileşim","Konsept"]
+  },
+  {
+    id:"silo-dizi", cat:"ekran", live:true, acc:"#e8a33d", emo:"🌀",
+    title:"SILO",
+    desc:"Apple TV+ dizisi Silo'ya hayran sitesi: on bin kişinin yaşadığı 144 katlık siloda scroll'la aşağı in, derinlik göstergesini izle, sakinlerin dosyalarını aç.",
+    tags:["Scroll Anlatı","144 Kat","Dizi"]
+  },
+  {
+    id:"you-dizi", cat:"ekran", live:true, acc:"#b3122e", emo:"🖤",
+    title:"YOU",
+    desc:"Netflix'in You dizisi: Joe'nun iç sesi doğrudan sana konuşur. Vitrine bak, camın arkasına geç — bodruma inmeyi göze alırsan defteri de okursun.",
+    tags:["İkinci Tekil","TMDB","Dizi"]
+  },
+  {
+    id:"obsession-film", cat:"ekran", live:true, acc:"#ff2a3c", emo:"📱",
+    title:"Obsession",
+    desc:"2026 yapımı korku filmi Obsession: dileği kırarsan Nikki mesaj atmaya başlar. Telefon arayüzü dolar, kırmızı bayraklar birikir — sessize alsan da fark etmez.",
+    tags:["Telefon UI","Korku","Film"]
+  },
+  {
+    id:"avengers-sitesi", cat:"ekran", live:false, acc:"#e5b833", emo:"🛡️",
+    title:"AVENGERS",
+    desc:"Sekiz kahramanın bölümü kendi yeteneğiyle açılıyor: yıldırım düşer, portal açılır, kalkan fırlar, ekran sarsılır. En dipte Thanos bekliyor — eldivene dokunma.",
+    tags:["Efektler","Scroll","Marvel"]
+  }
+];
+
+const grid  = document.getElementById("grid");
+const empty = document.getElementById("empty");
+const qEl   = document.getElementById("q");
+const onlyLiveBtn = document.getElementById("onlyLive");
+
+let cat = "all", onlyLive = false, q = "";
+
+// Türkçe arama: İ/ı tuzağını ve aksanları temizle — "kadikoy" da "Kadıköy"ü bulsun
+const fold = s => s
+  .toLowerCase()
+  .normalize("NFD").replace(/\p{M}/gu, "")
+  .replace(/ı/g, "i").replace(/ş/g, "s").replace(/ğ/g, "g");
+
+function cardHTML(p, i){
+  const tag  = p.live ? "a" : "div";
+  const href = p.live ? ` href="/${p.id}/"` : "";
+  const cls  = p.live ? "card" : "card soon";
+  const badge = p.live
+    ? `<span class="badge live">Yayında</span>`
+    : `<span class="badge">Yerelde</span>`;
+  const go = p.live ? "Gir →" : "Henüz yayında değil";
+  return `
+  <${tag}${href} class="${cls}" style="--acc:${p.acc}" data-cat="${p.cat}" data-live="${p.live}"
+     data-find="${fold(p.title + " " + p.desc + " " + p.tags.join(" "))}">
+    <div class="shot">
+      ${badge}
+      <img src="shots/${p.id}.jpg" alt="${p.title} ekran görüntüsü"
+           loading="${i < 4 ? "eager" : "lazy"}" decoding="async" width="880" height="550">
+    </div>
+    <div class="body">
+      <h2><span class="emo">${p.emo}</span>${p.title}</h2>
+      <p>${p.desc}</p>
+      <div class="tags">${p.tags.map(t => `<span class="tag">${t}</span>`).join("")}</div>
+      <div class="foot"><span class="go">${go}</span></div>
+    </div>
+  </${tag}>`;
+}
+
+grid.innerHTML = PROJECTS.map(cardHTML).join("");
+document.getElementById("s-total").textContent = PROJECTS.length;
+document.getElementById("s-live").textContent  = PROJECTS.filter(p => p.live).length;
+
+function apply(){
+  let shown = 0;
+  for (const el of grid.children){
+    const okCat  = cat === "all" || el.dataset.cat === cat;
+    const okLive = !onlyLive || el.dataset.live === "true";
+    const okQ    = !q || el.dataset.find.includes(q);
+    const ok = okCat && okLive && okQ;
+    el.style.display = ok ? "" : "none";
+    if (ok) shown++;
+  }
+  empty.classList.toggle("on", shown === 0);
+}
+
+document.getElementById("chips").addEventListener("click", e => {
+  const b = e.target.closest(".chip");
+  if (!b) return;
+  if (b === onlyLiveBtn){
+    onlyLive = !onlyLive;
+    b.setAttribute("aria-pressed", String(onlyLive));
+  } else {
+    cat = b.dataset.cat;
+    for (const c of document.querySelectorAll(".chip[data-cat]"))
+      c.setAttribute("aria-pressed", String(c === b));
+  }
+  apply();
+});
+
+qEl.addEventListener("input", () => {
+  q = fold(qEl.value.trim());
+  apply();
+});
+</script>
 </body>
 </html>
