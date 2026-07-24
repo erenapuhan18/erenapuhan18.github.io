@@ -9,7 +9,7 @@
 <link rel="canonical" href="https://erenapuhan18.github.io/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Eren Apuhan · Web Projeleri">
-<meta property="og:description" content="18 tarayıcı projesi: canlı ulaşım haritası, 3D stadyum, maç motoru, turnuva simülatörleri, mekân konseptleri, dizi ve film sayfaları.">
+<meta property="og:description" content="19 tarayıcı projesi: canlı ulaşım haritası, 3D stadyum, maç motoru, turnuva simülatörleri, QR üretici, mekân konseptleri, dizi ve film sayfaları.">
 <meta property="og:url" content="https://erenapuhan18.github.io/">
 <meta property="og:image" content="https://erenapuhan18.github.io/shots/stadyum-bilet.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -159,7 +159,7 @@
     <div class="stats">
       <div class="stat"><b id="s-total">18</b><span>Proje</span></div>
       <div class="stat"><b id="s-live">12</b><span>Yayında</span></div>
-      <div class="stat"><b>4</b><span>Kategori</span></div>
+      <div class="stat"><b>5</b><span>Kategori</span></div>
     </div>
   </header>
 
@@ -168,6 +168,7 @@
       <button class="chip" data-cat="all"     aria-pressed="true">Hepsi</button>
       <button class="chip" data-cat="spor"    aria-pressed="false">Spor &amp; Simülasyon</button>
       <button class="chip" data-cat="sehir"   aria-pressed="false">Şehir &amp; Harita</button>
+      <button class="chip" data-cat="arac"    aria-pressed="false">Araçlar</button>
       <button class="chip" data-cat="konsept" aria-pressed="false">Konsept</button>
       <button class="chip" data-cat="ekran"   aria-pressed="false">Dizi &amp; Film</button>
       <button class="chip only" id="onlyLive" aria-pressed="false">● Sadece yayındakiler</button>
@@ -236,6 +237,12 @@ const PROJECTS = [
     title:"Kültür Ağı",
     desc:"Fikirlerin, müziğin ve tasarımın şehirler arasında nasıl dolaştığını izle: 112 şehir, 168 rota, eşdörtgenden ortografiğe dönen etkileşimli küre.",
     tags:["Veri Görselleştirme","Küre Projeksiyonu","Canvas"]
+  },
+  {
+    id:"qr-uretici", cat:"arac", live:true, acc:"#2fd98a", emo:"🔳",
+    title:"QR Üretici",
+    desc:"Wi-Fi şifresi, kartvizit, konum, etkinlik, WhatsApp mesajı — sekiz ayrı QR türü. Ortasına logo koy, PNG ya da vektör indir. Hiçbir veri gönderilmez, internetsiz de çalışır.",
+    tags:["Çevrimdışı","Canvas & SVG","vCard"]
   },
   {
     id:"araba-vitrini", cat:"konsept", live:false, acc:"#e8b04b", emo:"🚗",
