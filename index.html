@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Eren Apuhan · Web Projeleri</title>
-<meta name="description" content="Eren Apuhan'ın web projeleri: İstanbul canlı ulaşım haritası, 3D stadyum bilet gişesi, 2D maç motoru, kura ve turnuva simülatörleri, mekân konseptleri ve dizi/film sayfaları. Hepsi tarayıcıda çalışır.">
+<meta name="description" content="Eren Apuhan'ın web projeleri: İstanbul canlı ulaşım haritası, adım adım navigasyon, 3D stadyum bilet gişesi, 2D maç motoru, kura ve turnuva simülatörleri, dünya savaşları müzesi ve mekân konseptleri. Hepsi tarayıcıda çalışır.">
 <meta name="author" content="Eren Apuhan">
 <link rel="canonical" href="https://erenapuhan18.github.io/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Eren Apuhan · Web Projeleri">
-<meta property="og:description" content="23 tarayıcı projesi: canlı ulaşım haritası, günlük brifing panosu, 3D stadyum, gezegen atlası, maç motoru, turnuva simülatörleri, QR üretici, mekân konseptleri, dizi ve film sayfaları.">
+<meta property="og:description" content="21 tarayıcı projesi: canlı ulaşım haritası, adım adım navigasyon, günlük brifing panosu, 3D stadyum, gezegen atlası, dünya savaşları müzesi, maç motoru, turnuva simülatörleri, QR üretici ve mekân konseptleri.">
 <meta property="og:url" content="https://erenapuhan18.github.io/">
 <meta property="og:image" content="https://erenapuhan18.github.io/shots/stadyum-bilet.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -155,11 +155,11 @@
   <header>
     <div class="eyebrow">erenapuhan18.github.io</div>
     <h1>EREN <span>APUHAN</span></h1>
-    <p class="sub">Tarayıcıda çalışan web projeleri — canlı veri panoları, 3D deneyimler, futbol simülasyonları, mekân konseptleri ve dizi/film sayfaları. Kurulum yok, sunucu yok; hepsi tek sayfa açılır.</p>
+    <p class="sub">Tarayıcıda çalışan web projeleri — canlı veri panoları, 3D deneyimler, futbol simülasyonları, haritalar ve mekân konseptleri. Kurulum yok, sunucu yok; hepsi tek sayfa açılır.</p>
     <div class="stats">
       <div class="stat"><b id="s-total">21</b><span>Proje</span></div>
-      <div class="stat"><b id="s-live">18</b><span>Yayında</span></div>
-      <div class="stat"><b>5</b><span>Kategori</span></div>
+      <div class="stat"><b id="s-live">21</b><span>Yayında</span></div>
+      <div class="stat"><b id="s-cat">4</b><span>Kategori</span></div>
     </div>
   </header>
 
@@ -170,7 +170,6 @@
       <button class="chip" data-cat="sehir"   aria-pressed="false">Şehir &amp; Harita</button>
       <button class="chip" data-cat="arac"    aria-pressed="false">Araçlar</button>
       <button class="chip" data-cat="konsept" aria-pressed="false">Konsept</button>
-      <button class="chip" data-cat="ekran"   aria-pressed="false">Dizi &amp; Film</button>
       <button class="chip only" id="onlyLive" aria-pressed="false">● Sadece yayındakiler</button>
     </div>
     <div class="search">
@@ -201,6 +200,24 @@ const PROJECTS = [
     title:"SEANS · Borsa İstanbul",
     desc:"BIST'in tüm hisseleri, dolar, euro, altın, gümüş ve petrol; neon grafikler, piyasa nabzı ısı haritası, takip listesi, portföy kâr-zararı ve halka arz takvimi.",
     tags:["Canlı Veri","Neon Grafik","Portföy"]
+  },
+  {
+    id:"dunya-savaslari", cat:"konsept", live:true, acc:"#b7332b", emo:"🎖️",
+    title:"CEPHE · Dünya Savaşları",
+    desc:"İki dünya savaşı, kabartma bir dünya atlası üzerinde adım adım anlatılıyor: cepheler, dönüm noktası muharebeler, arşiv fotoğrafları ve künyeleri. Arazi gerçek yükseklik verisinden üretiliyor — üstünde siyasi sınır yok, sadece dağlar, kıyılar ve cephe hatları.",
+    tags:["three.js","Kabartma Atlas","Tarih"]
+  },
+  {
+    id:"seyir", cat:"arac", live:true, acc:"#5fe3c0", emo:"🧭",
+    title:"SEYİR · Navigasyon",
+    desc:"Adres ara, rotayı çiz, adım adım Türkçe tarifle git — \"Bağdat Caddesi'ne sağa dönün\" diye, doğru çekim ekleriyle. Araba, yürüme, bisiklet ve toplu taşıma; trafik yoğunluğu, tahmini ücret ve sesli tarif.",
+    tags:["Navigasyon","MapLibre","Türkçe Tarif"]
+  },
+  {
+    id:"karanfil", cat:"konsept", live:true, acc:"#c7a76a", emo:"🍽️",
+    title:"KARANFİL · Karaköy",
+    desc:"Karaköy'de kurgusal bir modern Anadolu mutfağı: dört bölümlü tadım menüsü, imza tabağın hikâyesi, açılan fotoğraf galerisi ve rezervasyon formu. Sayfanın tamamı İngilizce ve Türkçe.",
+    tags:["Fine Dining","Konsept","EN/TR"]
   },
   {
     id:"sabah", cat:"arac", live:true, acc:"#8fb8ff", emo:"🌅",
@@ -257,12 +274,6 @@ const PROJECTS = [
     tags:["Simülasyon","Animasyon","UEFA"]
   },
   {
-    id:"lewis-hamilton", cat:"spor", live:true, acc:"#00d296", emo:"🏎️",
-    title:"Lewis Hamilton · #44",
-    desc:"Yedi kez dünya şampiyonu Hamilton'a adanmış tek sayfalık hayran sitesi: kariyer dönemeçleri, rekorlar ve scroll'la ilerleyen anlatım.",
-    tags:["Scroll Anlatı","F1"]
-  },
-  {
     id:"avrupa-gezi", cat:"sehir", live:true, acc:"#3fe0c5", emo:"🌍",
     title:"Kültür Ağı",
     desc:"Fikirlerin, müziğin ve tasarımın şehirler arasında nasıl dolaştığını izle: 112 şehir, 168 rota, eşdörtgenden ortografiğe dönen etkileşimli küre.",
@@ -287,46 +298,22 @@ const PROJECTS = [
     tags:["Konsept","OSM Harita","Animasyon"]
   },
   {
-    id:"kor-ocakbasi", cat:"konsept", live:false, acc:"#ff5a1f", emo:"🔥",
+    id:"kor-ocakbasi", cat:"konsept", live:true, acc:"#ff5a1f", emo:"🔥",
     title:"KOR · Karaköy Ocakbaşı",
     desc:"\"Ateş acele etmez.\" Köz ve kıvılcım canvas'ta canlı yanıyor; menü ızgaranın üstünde, her et için köz süresi barıyla. Ocak başından tabureni seç.",
     tags:["Canvas","Konsept","Parçacık"]
   },
   {
-    id:"yakamoz-meyhane", cat:"konsept", live:false, acc:"#e8c87a", emo:"🌙",
+    id:"yakamoz-meyhane", cat:"konsept", live:true, acc:"#e8c87a", emo:"🌙",
     title:"Yakamoz · Arnavutköy",
     desc:"Sayfa bir akşam gibi ilerler: kaydırdıkça saat geçer, gökyüzü kararır, kadeh dolar. Dönen sofrada meze seç, teras planından masanı ayır.",
     tags:["Scroll Anlatı","Konsept","Boğaz"]
   },
   {
-    id:"baston-donut", cat:"konsept", live:false, acc:"#ef4f78", emo:"🍩",
+    id:"baston-donut", cat:"konsept", live:true, acc:"#ef4f78", emo:"🍩",
     title:"Baston Donut",
     desc:"İmleç bir donut, sayfalar deliğinden geçilerek açılıyor. Hero donutu gerçekten ısırabilirsin; menü beş halka hâlinde diziliyor, hesap QR'lı tabakta geliyor.",
     tags:["SVG","Etkileşim","Konsept"]
-  },
-  {
-    id:"the-odyssey", cat:"ekran", live:true, acc:"#c9a35c", emo:"🏛️",
-    title:"THE ODYSSEY",
-    desc:"Christopher Nolan'ın 2026 Odysseia filmi için hayran konsept sitesi: Troya'dan İthaka'ya yedi duraklı yolculuk, şarap karası denizin yıldız haritası, Delfi kâhini, Odysseus'un yayını germe oyunu ve IMAX 70mm karşılaştırması.",
-    tags:["Scroll Anlatı","Canvas","Film"]
-  },
-  {
-    id:"silo-dizi", cat:"ekran", live:true, acc:"#e8a33d", emo:"🌀",
-    title:"SILO",
-    desc:"Apple TV+ dizisi Silo'ya hayran sitesi: on bin kişinin yaşadığı 144 katlık siloda scroll'la aşağı in, derinlik göstergesini izle, sakinlerin dosyalarını aç.",
-    tags:["Scroll Anlatı","144 Kat","Dizi"]
-  },
-  {
-    id:"you-dizi", cat:"ekran", live:true, acc:"#b3122e", emo:"🖤",
-    title:"YOU",
-    desc:"Netflix'in You dizisi: Joe'nun iç sesi doğrudan sana konuşur. Vitrine bak, camın arkasına geç — bodruma inmeyi göze alırsan defteri de okursun.",
-    tags:["İkinci Tekil","TMDB","Dizi"]
-  },
-  {
-    id:"obsession-film", cat:"ekran", live:true, acc:"#ff2a3c", emo:"📱",
-    title:"Obsession",
-    desc:"2026 yapımı korku filmi Obsession: dileği kırarsan Nikki mesaj atmaya başlar. Telefon arayüzü dolar, kırmızı bayraklar birikir — sessize alsan da fark etmez.",
-    tags:["Telefon UI","Korku","Film"]
   }
 ];
 
@@ -371,6 +358,7 @@ function cardHTML(p, i){
 grid.innerHTML = PROJECTS.map(cardHTML).join("");
 document.getElementById("s-total").textContent = PROJECTS.length;
 document.getElementById("s-live").textContent  = PROJECTS.filter(p => p.live).length;
+document.getElementById("s-cat").textContent   = new Set(PROJECTS.map(p => p.cat)).size;
 
 function apply(){
   let shown = 0;
