@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Eren Apuhan · Web Projeleri</title>
-<meta name="description" content="Eren Apuhan'ın web projeleri: İstanbul canlı ulaşım haritası, adım adım navigasyon, 3D stadyum bilet gişesi, futbol menajerlik oyunu, 2D maç motoru, kura ve turnuva simülatörleri, dünya savaşları müzesi ve mekân konseptleri. Hepsi tarayıcıda çalışır.">
+<meta name="description" content="Eren Apuhan'ın web projeleri: İstanbul canlı ulaşım haritası, adım adım navigasyon, devamsızlık hesaplayıcı, 3D stadyum bilet gişesi, futbol menajerlik oyunu, 2D maç motoru, kura ve turnuva simülatörleri, dünya savaşları müzesi ve mekân konseptleri. Hepsi tarayıcıda çalışır.">
 <meta name="author" content="Eren Apuhan">
 <link rel="canonical" href="https://erenapuhan18.github.io/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Eren Apuhan · Web Projeleri">
-<meta property="og:description" content="22 tarayıcı projesi: canlı ulaşım haritası, adım adım navigasyon, günlük brifing panosu, 3D stadyum, gezegen atlası, dünya savaşları müzesi, maç motoru, turnuva simülatörleri, QR üretici ve mekân konseptleri.">
+<meta property="og:description" content="24 tarayıcı projesi: canlı ulaşım haritası, adım adım navigasyon, devamsızlık hesaplayıcı, günlük brifing panosu, 3D stadyum, gezegen atlası, dünya savaşları müzesi, maç motoru, turnuva simülatörleri, QR üretici ve mekân konseptleri.">
 <meta property="og:url" content="https://erenapuhan18.github.io/">
 <meta property="og:image" content="https://erenapuhan18.github.io/shots/stadyum-bilet.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -157,8 +157,8 @@
     <h1>EREN <span>APUHAN</span></h1>
     <p class="sub">Tarayıcıda çalışan web projeleri — canlı veri panoları, 3D deneyimler, futbol simülasyonları, haritalar ve mekân konseptleri. Kurulum yok, sunucu yok; hepsi tek sayfa açılır.</p>
     <div class="stats">
-      <div class="stat"><b id="s-total">22</b><span>Proje</span></div>
-      <div class="stat"><b id="s-live">22</b><span>Yayında</span></div>
+      <div class="stat"><b id="s-total">24</b><span>Proje</span></div>
+      <div class="stat"><b id="s-live">24</b><span>Yayında</span></div>
       <div class="stat"><b id="s-cat">4</b><span>Kategori</span></div>
     </div>
   </header>
@@ -200,6 +200,12 @@ const PROJECTS = [
     title:"İstanbul Canlı Ulaşım",
     desc:"Metro, tramvay, Marmaray, metrobüs ve vapurlar tek haritada. Tarifeye göre araç konumu tahmini, LED peron panosu, rota planlayıcı ve şematik metro haritası modu.",
     tags:["Canlı API","Leaflet","GTFS"]
+  },
+  {
+    id:"attendly", cat:"arac", live:true, acc:"#5b78ff", emo:"🎓",
+    title:"Attendly · Devamsızlık Hesaplayıcı",
+    desc:"Üniversite dersleri için devam sınırı hesaplayıcı. Saat ya da oturum bazlı kalan devamsızlık hakkı, kaçırılabilecek ders sayısı, risk durumu ve “bir sonraki derse girmezsen” simülasyonu; derslerim paneli, otomatik uyarılar ve dışa aktarma.",
+    tags:["Next.js","Recharts","localStorage"]
   },
   {
     id:"seans", cat:"arac", live:true, acc:"#3ae0ff", emo:"📈",
